@@ -1,0 +1,341 @@
+.control-panel {
+  margin-bottom: 20px;
+}
+
+.control-panel h2 {
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.control-section {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.control-section h3 {
+  color: #555;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* Status Indicators */
+.status-indicators {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-badge.connected {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-badge.disconnected {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.status-badge.mode-live {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.status-badge.mode-demo {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.status-badge.mode-historical {
+  background-color: #e2e3e5;
+  color: #383d41;
+  border: 1px solid #d6d8db;
+}
+
+/* Movement Grid Layout */
+.movement-grid {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.movement-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+/*.movement-row > div:empty {
+  /* Empty grid cells */
+
+
+/* Button Styles */
+.control-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  min-width: 60px;
+  text-align: center;
+}
+
+.move-btn {
+  background-color: #007bff;
+  color: white;
+  min-width: 50px;
+  padding: 8px 12px;
+}
+
+.move-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.move-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.home-btn {
+  background-color: #6f42c1;
+  color: white;
+  font-size: 12px;
+  padding: 8px 6px;
+}
+
+.home-btn:hover:not(:disabled) {
+  background-color: #5a32a3;
+}
+
+.home-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.scan-point-btn {
+  background-color: #fd7e14;
+  color: white;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.scan-point-btn:hover:not(:disabled) {
+  background-color: #e8590c;
+}
+
+.scan-btn {
+  background-color: #28a745;
+  color: white;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.scan-btn:hover:not(:disabled) {
+  background-color: #1e7e34;
+}
+
+.resume-btn {
+  background-color: #17a2b8;
+  color: white;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.resume-btn:hover:not(:disabled) {
+  background-color: #138496;
+}
+
+.stop-btn {
+  background-color: #ffc107;
+  color: #212529;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.stop-btn:hover:not(:disabled) {
+  background-color: #e0a800;
+}
+
+.emergency-btn {
+  background-color: #dc3545;
+  color: white;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 16px;
+  padding: 12px 15px;
+  border: 2px solid #dc3545;
+  animation: pulse-emergency 2s infinite;
+}
+
+.emergency-btn:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+@keyframes pulse-emergency {
+  0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+/* Input Controls */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+  font-size: 13px;
+}
+
+.input-with-btn {
+  display: flex;
+  gap: 8px;
+}
+
+.input-with-btn input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input-with-btn input:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.input-with-btn button {
+  background-color: #6c757d;
+  color: white;
+  padding: 8px 12px;
+  min-width: 60px;
+}
+
+.input-with-btn button:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.input-with-btn button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Scan Controls */
+.scan-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scanning-active {
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #d4edda;
+  margin-bottom: 10px;
+}
+
+/* Progress Bar */
+.scan-progress {
+  margin-top: 15px;
+}
+
+.progress-info {
+  font-size: 12px;
+  color: #155724;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #28a745;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  transition: width 0.3s ease;
+  animation: progress-shimmer 2s infinite;
+}
+
+@keyframes progress-shimmer {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+/* Disabled State */
+.disabled-message {
+  text-align: center;
+  background-color: #fff3cd;
+  border-color: #ffeaa7;
+}
+
+.warning-message {
+  color: #856404;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff3cd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .movement-grid {
+    max-width: 150px;
+  }
+  
+  .control-btn {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  
+  .status-indicators {
+    flex-direction: column;
+  }
+  
+  .input-with-btn {
+    flex-direction: column;
+  }
+  
+  .input-with-btn button {
+    width: 100%;
+  }
+}

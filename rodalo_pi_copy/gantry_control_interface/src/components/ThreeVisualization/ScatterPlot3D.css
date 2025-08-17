@@ -1,0 +1,261 @@
+.scatter-plot-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.plot-header {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.plot-header h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.plot-info {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.plot-info span {
+  background-color: #e9ecef;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Data source indicators */
+.plot-info span.data-source.live {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.plot-info span.data-source.demo {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.plot-info span.data-source.historical {
+  background-color: #e2e3e5;
+  color: #383d41;
+  border: 1px solid #d6d8db;
+}
+
+/* Connection status indicators */
+.plot-info span.connection-status.connected {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  animation: pulse-green 2s infinite;
+}
+
+.plot-info span.connection-status.disconnected {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.plot-info span.performance-info {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+@keyframes pulse-green {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Camera controls */
+.camera-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.camera-controls button {
+  padding: 6px 12px;
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.camera-controls button:hover {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.camera-controls button.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.camera-controls button:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border-color: #dee2e6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Special scan point button */
+.camera-controls .scan-point-btn {
+  border-color: #fd7e14;
+  color: #fd7e14;
+  font-weight: bold;
+}
+
+.camera-controls .scan-point-btn:hover:not(:disabled) {
+  background-color: #fd7e14;
+  color: white;
+}
+
+.camera-controls .scan-point-btn:disabled {
+  border-color: #dee2e6;
+  color: #6c757d;
+}
+
+/* 3D Canvas */
+.three-canvas {
+  flex: 1;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  background-color: #ffffff;
+  cursor: grab;
+  position: relative;
+  overflow: hidden;
+}
+
+.three-canvas:active {
+  cursor: grabbing;
+}
+
+/* Enhanced canvas for live mode */
+.three-canvas.live-mode {
+  border-color: #17a2b8;
+  box-shadow: 0 0 10px rgba(23, 162, 184, 0.2);
+}
+
+.three-canvas.scanning {
+  border-color: #28a745;
+  box-shadow: 0 0 15px rgba(40, 167, 69, 0.3);
+  animation: scanning-pulse 2s infinite;
+}
+
+@keyframes scanning-pulse {
+  0% { box-shadow: 0 0 5px rgba(40, 167, 69, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(40, 167, 69, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(40, 167, 69, 0.3); }
+}
+
+/* Controls info */
+.controls-info {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+  background-color: #f8f9fa;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.controls-info .live-indicator {
+  color: #dc3545;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .plot-info {
+    font-size: 10px;
+    gap: 6px;
+  }
+  
+  .plot-info span {
+    padding: 2px 6px;
+  }
+  
+  .camera-controls {
+    gap: 4px;
+  }
+  
+  .camera-controls button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  
+  .controls-info {
+    font-size: 10px;
+    padding: 6px;
+  }
+}
+
+/* Loading states */
+.plot-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #666;
+  font-size: 14px;
+}
+
+.plot-loading::before {
+  content: "⏳";
+  margin-right: 8px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Error states */
+.plot-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #dc3545;
+  font-size: 14px;
+  background-color: #f8d7da;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.plot-error::before {
+  content: "⚠️";
+  margin-right: 8px;
+}

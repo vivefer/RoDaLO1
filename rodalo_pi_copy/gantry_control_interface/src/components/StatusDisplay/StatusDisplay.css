@@ -1,0 +1,286 @@
+.status-display {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.status-display h3 {
+  color: #333;
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 8px;
+}
+
+.status-display h4 {
+  color: #555;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Status Sections */
+.status-section {
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.status-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Main Status Indicator */
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.status-indicator.scanning {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  animation: pulse-scanning 2s infinite;
+}
+
+.status-indicator.ready {
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+}
+
+.status-indicator.paused {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+}
+
+.status-indicator.disconnected {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+.status-indicator.demo {
+  background-color: #e2e3e5;
+  border: 1px solid #d6d8db;
+}
+
+.status-indicator.historical {
+  background-color: #f3e5f5;
+  border: 1px solid #e1bee7;
+}
+
+@keyframes pulse-scanning {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: status-pulse 2s infinite;
+}
+
+@keyframes status-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.status-text {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Status Grid Layout */
+.status-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.status-item:last-child {
+  border-bottom: none;
+}
+
+.status-item.full-width {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.status-item .label {
+  font-weight: 500;
+  color: #666;
+  font-size: 13px;
+  min-width: 120px;
+}
+
+.status-item .value {
+  font-weight: 600;
+  color: #333;
+  font-size: 13px;
+  text-align: right;
+}
+
+/* Connection Status Values */
+.value.connected {
+  color: #155724;
+  background-color: #d4edda;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.value.disconnected {
+  color: #721c24;
+  background-color: #f8d7da;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.value.scanning {
+  color: #dc3545;
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.5; }
+}
+
+/* Data Source Indicators */
+.value.source-live {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.value.source-demo {
+  color: #856404;
+  background-color: #fff3cd;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.value.source-historical {
+  color: #383d41;
+  background-color: #e2e3e5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+/* Progress Bar */
+.progress-container {
+  width: 100%;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e9ecef;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #28a745, #20c997);
+  border-radius: 6px;
+  transition: width 0.3s ease;
+  animation: progress-shimmer 2s infinite;
+}
+
+@keyframes progress-shimmer {
+  0% { opacity: 1; }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+.progress-text {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  display: block;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .status-display {
+    padding: 12px;
+  }
+  
+  .status-section {
+    padding: 10px;
+  }
+  
+  .status-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .status-item .value {
+    text-align: left;
+  }
+  
+  .status-item .label {
+    min-width: auto;
+  }
+  
+  .status-grid {
+    gap: 6px;
+  }
+}
+
+/* Enhanced Visual Effects */
+.status-section:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+/* Special Status States */
+.status-section.critical {
+  border-left: 4px solid #dc3545;
+  background-color: #fff5f5;
+}
+
+.status-section.success {
+  border-left: 4px solid #28a745;
+  background-color: #f8fff8;
+}
+
+.status-section.warning {
+  border-left: 4px solid #ffc107;
+  background-color: #fffef5;
+}
+
+.status-section.info {
+  border-left: 4px solid #17a2b8;
+  background-color: #f5feff;
+}
